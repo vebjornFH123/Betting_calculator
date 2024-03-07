@@ -1,0 +1,119 @@
+
+html, body { height: 100%; margin: 0; }
+.main {
+    position: relative;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    height: 100vh;
+    color: #333;
+    background-image: linear-gradient(to top left, #014e3c 0%, #a48603 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input{
+    position: relative;
+    top: 50%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 30pc;
+}
+
+input {
+    text-align: center;
+}
+
+.output{
+    position: relative;
+    top: 50%;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 10px;
+    font-size: 30px;
+    border-radius: 30px;
+}
+
+.arrow{ 
+    top: -1;
+}
+
+.header{
+    position: absolute;
+    top: 25%;
+    font-size: larger;
+    color: white;
+}
+
+.headerMat{
+    position: absolute;
+    top: 35%;
+    left: 35.8%;
+    font-size: small;
+    color: #4CA8F1;
+}
+
+.headerBet{
+    position: absolute;
+    top: 35%;
+    right: 37%;
+    font-size: small;
+    color: #FFDE47;
+}
+
+.inputMat{
+    position: absolute;
+    top: 40%; 
+    left: 35%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 30pc;
+}
+
+.inputBet{
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 30pc;
+}
+
+
+@media only screen and (max-width: 1440px) {
+    .inputMat{
+        position: absolute;
+        top: 35%;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 30pc;
+    }
+    
+    .inputBet{
+        position: absolute;
+        top: 42%;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 30pc;
+    } 
+    .headerMat{
+        position: absolute;
+        top: 31%;
+        left: 38%;
+        font-size: small;
+        color: #4CA8F1;
+    }
+    
+    .headerBet{
+        position: absolute;
+        top: 38%;
+        right: 40%;
+        font-size: small;
+        color: #FFDE47;
+    }
+}
+

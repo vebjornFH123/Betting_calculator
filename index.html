@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tippekalkulatoren</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Tippekalkulatoren</h1>
+    </div>
+    <div class="headerMat">
+        <h2>Trademate-Balance</h2>
+    </div>
+    <div class="headerBet">
+        <h2>Bet365-Balance</h2>
+    </div>
+    <div>
+        <input type="text" class="input" oninput="calcBetOnInput()">
+    </div> 
+        <input type="text" class="inputMat"  oninput="calcPercent()">
+        <input type="text" class="inputBet" oninput="balance(), calcPercent()">
+    </div> 
+    <div>
+        <img class="arrow" src="icons8-up-left-100.png" alt="">
+    </div>
+    <div class="output1"">
+        <output class="output"></output>
+    </div>  
+    <script>
+
+window.addEventListener('click',() => {
+    calcBetOnClick(); 
+});
+
+        let input = 0; 
+        let percentToBet = 0; 
+        let balanceMat = 0; 
+        let  balanceBet = 0; 
+
+
+    function balance(){
+           let percents = {
+            tradeMatsBalances: parseInt(document.querySelector(".inputMat").value),
+            bet365Balances: parseInt(document.querySelector(".inputBet").value)
+           }
+           localStorage.setItem("percentsBet", JSON.stringify(percents)); 
+        }; ''
+
+       
+        function getData() {
+            let getStorData = JSON.parse(localStorage.getItem("percentsBet"));
+            balanceMat = getStorData.tradeMatsBalances; 
+            balanceBet = getStorData.bet365Balances;
+            return { first: balanceMat, second: balanceBet}
+    }
+        let getReturn = getData()
+
+
+        let tradeMatsBalances =  document.querySelector(".inputMat").value = getReturn.first; 
+        let bet365Balances = document.querySelector(".inputBet").value = getReturn.second;
+
+        function calcPercent(){
+            tradeMatsBalances = parseInt(document.querySelector(".inputMat").value); 
+            percentToBet = bet365Balances/tradeMatsBalances;
+
+            console.log(percentToBet)
+            return percentToBet; 
+            
+        }
+       
+        calcPercent()
+
+        async function calcBetOnClick()  {
+            let number = await navigator.clipboard.readText();
+                input = parseInt(document.querySelector(".input").value = number);
+            
+            let output = Math.round((input * percentToBet) / 50) * 50;
+
+            if(output < 100) {
+                document.querySelector(".output").value = 100; 
+                let copyOutput = navigator.clipboard.writeText(100);
+            }else{
+                document.querySelector(".output").value = output;
+                copyOutput = navigator.clipboard.writeText(output);
+            };
+        }; 
+
+
+    function calcBetOnInput(){
+        input = parseInt(document.querySelector(".input").value);
+            let output = Math.round((input * percentToBet) / 50) * 50;
+
+            if(output < 100) {
+                document.querySelector(".output").value = 100;
+                let copyOutput = navigator.clipboard.writeText(100);
+            }else{
+                copyOutput = navigator.clipboard.writeText(output);
+                document.querySelector(".output").value = output;
+            };
+    }
+
+    </script>
+    
+</body>
+</html>
