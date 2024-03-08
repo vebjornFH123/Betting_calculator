@@ -7,7 +7,7 @@ It calculates the optimal amount to bet based on the percentages of balances on 
 
 ### View Project Online:
 
-You can view the project live [here](https://vebjornfh.no).
+You can view the project live [here](https://vebjornfh123.github.io/Hobby_projects-Betting_calculator/).
 
 ## Purpose:
 
